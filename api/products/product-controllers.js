@@ -1,7 +1,9 @@
 const Product = require('./product-model');
 
 function getProducts (req, res, next) {
-  Product.find({}, (products) => {
+  Product.find({}, (err, products) => {
+    if (err) return res.status(500).send({ message: `Error ${err.code}: ${err.message}`});
+
     res.status(200).send({ products });
   });
 }

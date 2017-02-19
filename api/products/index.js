@@ -10,8 +10,8 @@ const {
 const router = express.Router();
 
 router.get('/', getProducts);
+router.post('/', saveProduct);
 router.get('/:product_id', getSingleProduct);
-router.post('/:product_id', saveProduct);
 router.put('/:product_id', updateProduct);
 router.delete('/:product_id', deleteProduct);
 
