@@ -2,12 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const promise = require('bluebird');
+const cors = require('cors');
+
 const productsApi = require('./api/products');
 
 const PORT = process.env.PORT || 3000;
 const DB = process.env.MONGODB_URI || 'mongodb://localhost/ecommerce-db';
 const app = express();
 
+app.use(cors());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
